@@ -1,0 +1,10 @@
+bits = 0/1 
+- 0
+
+byte = 8 bits
+- 01101001
+
+Key:
+256 bits --> 32 bytes --> 8 words
+
+1 word --> 4 bytes --> 32 bits
