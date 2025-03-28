@@ -14,4 +14,4 @@ def create_key(password):
     print(key[:32])
 
 
-create_key("password")
+
