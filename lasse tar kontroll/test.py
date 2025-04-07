@@ -11,6 +11,8 @@ def xor_gate(key, message):
     key_length = len(key)
     for i in range(len(message)):
         encrypted_byte = message[i] ^ key[i % key_length]
+        print(message[i], key[i % key_length])
+        print(encrypted_byte)
         encrypted_message.append(encrypted_byte)
     return encrypted_message
 

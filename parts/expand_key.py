@@ -1,4 +1,5 @@
 from create_key import create_key
+from pprint import pprint
 
 # AES S-Box (Substitution Box)
 S_BOX = [
@@ -42,14 +43,15 @@ def sub_word(word):
             (S_BOX[(word)       & 0xF][(word >> 28) & 0xF]))
 
 def key_expansion(key):
-    """Expands a 256-bit AES key into 60 words for 14 rounds."""
     key_schedule = []
 
-    # Convert key bytes to 32-bit words
     for i in range(8):
-        key_schedule.append((key[4*i] << 24) | (key[4*i+1] << 16) | (key[4*i+2] << 8) | key[4*i+3])
+      key_schedule.append((key[4*i] << 24) | (key[4*i+1] << 16) | (key[4*i+2] << 8) | key[4*i+3])
 
-    # Generate remaining words
+
+    pprint(key_schedule)
+  
+'''
     for i in range(8, 60):
         temp = key_schedule[i - 1]
 
@@ -65,9 +67,14 @@ def key_expansion(key):
     
     return round_keys  # Returns 15 round keys
 
-
+'''
 keys = key_expansion(create_key("password"))
+"""
+for i in range(len(keys)):
+    for j in range(len(keys[i])):
+        keys[i][j] = str(keys[i][j]).encode()
 print(keys)
+"""
 #print(create_key("password").hex())
 
 

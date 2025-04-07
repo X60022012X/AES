@@ -16,5 +16,3 @@ def create_key(password):
 
     #Make sure key is 32 byte or 256 bits
     return sha3_hash[:32]
-
-print(create_key("password"))
