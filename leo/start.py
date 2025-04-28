@@ -6,7 +6,6 @@ import sys, os
 def create_key(password):  
     ph = PasswordHasher()
     argon2_hash = ph.hash(password)
-
     sha3_hash = hashlib.sha3_256(argon2_hash.encode())
     key = sha3_hash.digest()
 
