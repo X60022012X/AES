@@ -26,12 +26,12 @@ def expand_key(password):
     words = []
     keys = []
 
-    #Transform initial key to words
+    #Transform initial key to words(4 bytes)
     for i in range(0, 32, 4):
         word = initial_key[i:i+4]
         words.append(word)
 
-    #Create remaining words
+    #Create remaining words(4 bytes)
     for i in range(8, 60):
             temp = words[i - 1]
 
@@ -45,8 +45,8 @@ def expand_key(password):
             word = xor(temp, words[i - 8])
             words.append(word)
 
-    #Transfrom from words to keys
-    for i in range(ROUNDS):
-        keys.append(b''.join(words[i*4:i*4+4]))
+    #Transfrom from words(4 bytes) to keys(4 words)
+    for i in range(0, len(words), 4):
+        keys.append(b''.join(words[i:i+4]))
 
     return keys

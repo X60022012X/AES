@@ -17,7 +17,7 @@ def xor_gate(key, message):
     return encrypted_message
 
 
-key = "nigger"
+key = "night"
 keys = []
 
 plaintext = "hello world"
