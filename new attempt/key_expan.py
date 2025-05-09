@@ -20,9 +20,7 @@ def xor(temp1, temp2):
     return bytes(word)
 
 
-def expand_key(password):
-    initial_key = expand_password(password)
-
+def expand_key(initial_key):
     words = []
     keys = []
 
